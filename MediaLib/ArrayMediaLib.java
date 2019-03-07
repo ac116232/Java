@@ -1,10 +1,3 @@
-
-/**
- * Write a description of class ArrayMediaLib here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class ArrayMediaLib{
    public static void main(String agrs[]){
 
@@ -20,6 +13,7 @@ public class ArrayMediaLib{
 {
     int[] daysBtwnPurchase = {2, 5, 1, 2, 4, 2, 1, 3};
     int total = 0;
+    int average;
     for(int val: daysBtwnPurchase) {
         total = total + val;
     }
@@ -42,12 +36,23 @@ public class ArrayMediaLib{
     }
     System.out.println("-BEFORE--");
     for(Song changeSong : topTenSongs){
-        changeSong.setTitle("test");
     }
     System.out.println("-AFTER--");
     for (Song showSong : topTenSongs){
         System.out.println(showSong.getTitle());
     }
+    int count = 0;
+    for (Song s : topTenSongs){
+        if(count % 3 == 0){
+            s.setPrice(.99);
+                System.out.println(s.getTitle()+"price" + s.getPrice());
+            }
+            else{
+                s.setPrice(1.29);
+                System.out.println(s.getTitle() + "price:" + s.getPrice());
+            }
+            count++;
   }
+}
 }
 }
