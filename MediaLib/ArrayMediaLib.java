@@ -1,15 +1,5 @@
 public class ArrayMediaLib{
-   public static void main(String agrs[]){
-
-       String[] sharingFriends = {("Jamal"),
-                  ("Emily"),
-                  ("Destiny"),
-                  ("Mateo"),
-                  ("Sofia")
-    };
-    for (int i = 0; i < 5; i++){
-    System.out.println(sharingFriends[i]);
-}
+   public static void main(String agrs[])
 {
     int[] daysBtwnPurchase = {2, 5, 1, 2, 4, 2, 1, 3};
     int total = 0;
@@ -41,18 +31,27 @@ public class ArrayMediaLib{
     for (Song showSong : topTenSongs){
         System.out.println(showSong.getTitle());
     }
-    int count = 0;
-    for (Song s : topTenSongs){
-        if(count % 3 == 0){
-            s.setPrice(.99);
-                System.out.println(s.getTitle()+"price" + s.getPrice());
-            }
-            else{
-                s.setPrice(1.29);
-                System.out.println(s.getTitle() + "price:" + s.getPrice());
-            }
-            count++;
-  }
+    int index = SongFinder.findTitle(topTenSongs, "Mack the Knife");
+    if (index >=0 ) {
+    System.out.println("Found " + topTenSongs[index].getTitle());
+}
+else  {
+    System.out.println("Song not found!");
+}
+index = SongFinder.getIndexLastDiscount(topTenSongs, 1.00);
+if (index >= 0 ) {
+    System.out.println("Discount found " + topTenSongs[index].getTitle());
+}
+else {
+    System.out.println("No songs are discounted");
+}
+System.out.println("--Find last song --");
+index = SongFinder.getIndexLastTitle(topTenSongs);
+if (index >= 0 ) {
+System.out.println("Last title: " + topTenSongs[index].getTitle());
+}
+else {
+System.out.println("You have a blank title!");
 }
 }
 }
